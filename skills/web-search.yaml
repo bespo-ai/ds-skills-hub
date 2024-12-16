@@ -1,0 +1,13 @@
+mention: "@web-search"
+description: "Perform a web search using Google"
+content: |
+  from googlesearch import search
+
+  def search_web(query, num_results=10):
+      results = list(search(query, num_results=num_results))
+      return results
+
+  # Perform search with specific query
+  search_web("Data Science", num_results=3)
+status: "inactive"
+tags: ["web-search", "google"]

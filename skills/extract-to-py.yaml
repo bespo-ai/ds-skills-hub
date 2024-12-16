@@ -1,0 +1,22 @@
+mention: "@extract-to-py"
+description: "Convert the current notebook or selected cells into a structured Python script by following a review-and-edit workflow."
+content: |
+  Follow this step-by-step process to integrate code from the notebook into a Python file:
+
+  1. Create a new code cell in the current notebook that will hold the refactored code intended for the Python file. 
+     - Insert only the necessary code related to the final functionality, removing any extraneous or temporary code that is in the notebook.
+     - Ensure that the inserted code is self-contained and clear, ideally organized into functions or modules that represent the final workflow.
+
+  2. Once the new cell with refactored code is verified and produces the desired outcome, ask the user to review it directly in the notebook. Encourage them to confirm that the code is correct, clean, and ready to be extracted into a `.py` file.
+
+  3. After user confirmation, edit the target `.py` file by writing the contents of the reviewed code cell into it. This means:
+     - Taking the code from the cell and appending or overwriting it in the `.py` file.
+     - Preserving imports and ensuring that any dependencies are listed at the top of the `.py` file.
+  
+  4. Once the `.py` file is successfully updated, remove the temporary code cell from the notebook to avoid clutter and duplication. Inform the user that the code is now integrated into the `.py` file.
+
+  5. Finally, insert an `import` statement in the notebook (in a dedicated code cell at the top) to import functions or modules from the newly updated `.py` file. Re-run the import cell and any dependent cells to confirm that the `.py` code can be successfully imported and used.
+status: "inactive"
+
+
+

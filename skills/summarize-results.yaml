@@ -1,0 +1,15 @@
+mention: "@summarize-results"
+description: "Summarize key findings and results of the last analysis or model run into a Markdown cell."
+content: |
+  Based on the most recent analysis or model run, produce a succinct, well-structured Markdown summary cell.
+  
+  The summary should include:
+  - A brief reminder of what was analyzed or modeled.
+  - Key quantitative metrics or performance indicators.
+  - Main insights discovered.
+  - Any notable limitations or caveats.
+  - Suggested next steps to refine the analysis or improve the model.
+  
+  The tone should be professional, data-focused, and concise.
+  Use headings, bullet points, or a short numbered list to keep it organized.
+status: "activated"

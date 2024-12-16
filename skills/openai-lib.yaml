@@ -1,0 +1,24 @@
+mention: "@openai-lib"
+description: "Use OpenAI's Python library to call the OpenAI API. It overcomes the outdated version stored in the LLM models."
+content: |
+  The following is the updated code to run the OpenAI API. You need to execute this code to use the OpenAI API.
+  ---
+  from openai import OpenAI
+  import os
+
+  def call_openai_model(messages = [{"role": "user", "content": ""}], model="gpt-4o-mini", params={"temperature": 0.7}):
+      # Initialize OpenAI client
+      client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+      
+      try:
+          # Call model with the given prompt
+          response = client.chat.completions.create(
+              model=model,
+              messages=messages,
+              **params
+          )
+          
+          return response.choices[0].message.content
+      except Exception as e:
+          return f"Error calling {model}: {str(e)}"
+status: "active"

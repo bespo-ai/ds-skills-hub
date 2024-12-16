@@ -1,0 +1,13 @@
+mention: "@inspect"
+description: "When using custom libraries, inspect function signatures and parameters"
+content: |
+  When using custom libraries, make sure you are using the correct function signature and parameters.
+  If you are not sure about how to use a function, you must inspect the function and its parameters.
+  Common inspection patterns:
+     - help(function_name) to view docstrings
+     - print(function_name.__doc__) as alternative
+     - inspect.getsource(function_name) to view the source code
+     - Look at the original cell where the function is defined
+     - Test with simple inputs if behavior is unclear
+status: "active"
+
