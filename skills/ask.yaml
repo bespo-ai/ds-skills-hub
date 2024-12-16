@@ -1,5 +1,5 @@
 mention: "@ask"
-description: "Answer questions without writing to notebook"
+description: "Answer questions without writing to the notebook"
 content: |
   Don't write to the notebook, just answer the question.
   If you have to run something, tell me.

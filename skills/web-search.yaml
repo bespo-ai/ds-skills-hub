@@ -1,5 +1,5 @@
 mention: "@web-search"
-description: "Perform a web search using Google"
+description: "Perform a web search in the notebook using Google Search package"
 content: |
   from googlesearch import search
 
