@@ -30,14 +30,13 @@ Use a descriptive branch name that reflects your changes, such as `add-web-scrap
 2. Create a new YAML file for your skill, following the naming convention: `my-new-skill.yaml`.
 3. Use the recommended schema:
    ```yaml
-   name: "my-new-skill"
    mention: "@my-new-skill"
    description: "A brief description of what this skill does."
    content: |
      # Your skill logic or instructions here.
      # For example, a Python snippet or a descriptive prompt
      # that guides the AI agent.
-   status: "activated"
+   status: "active"
    tags: ["plotting", "matplotlib"]
    ```
    
