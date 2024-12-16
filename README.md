@@ -21,7 +21,7 @@ description: "A brief description of what this skill does."
 content: |
   # Your skill logic or instructions here.
   # For example, a Python snippet or a descriptive prompt for the AI agent.
-status: "activated"
+status: "active"
 ```
 
 **Key Fields:**
@@ -30,7 +30,7 @@ status: "activated"
 - **description**: A short description that explains what the skill does.
 - **content**: The core logic or instructions for the skill. This can be code, prompts, or documentation.
 - **status**:  
-  - If `status` is `activated`, it means this skill may be automatically retrieved when it’s relevant to the user’s request.  
+  - If `status` is `active`, it means this skill may be automatically retrieved when it’s relevant to the user’s request.  
   - Otherwise, it means this skill will only be used when explicitly mentioned using its handle.
 - **tags**: A list of tags that can be used to categorize the skill.
 
