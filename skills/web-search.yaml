@@ -1,13 +1,57 @@
 mention: "@web-search"
 description: "Perform a web search in the notebook using Google Search package"
 content: |
-  from googlesearch import search
-
-  def search_web(query, num_results=10):
-      results = list(search(query, num_results=num_results))
-      return results
-
-  # Perform search with specific query
-  search_web("Data Science", num_results=3)
+    from googlesearch import search
+    from bs4 import BeautifulSoup
+    import requests
+    from urllib.parse import urlparse
+    import time
+    import pandas as pd
+    
+    def search_web(query: str, num_results: int = 10) -> list:
+        try:
+            results = list(search(query, num_results=num_results))
+            return results
+        except Exception as e:
+            print(f"Search failed: {str(e)}")
+            return []
+    
+    def fetch_and_parse_content(url: str) -> dict:
+        try:
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            }
+            
+            response = requests.get(url, headers=headers, timeout=10)
+            response.raise_for_status()
+            
+            soup = BeautifulSoup(response.text, 'html.parser')
+            
+            return {
+                'url': url,
+                'title': soup.title.string if soup.title else '',
+                'text': ' '.join([p.text for p in soup.find_all('p')]),
+                'domain': urlparse(url).netloc
+            }
+        except Exception as e:
+            return {'url': url, 'error': str(e)}
+    
+    def analyze_search_results(query: str, num_results: int = 5) -> pd.DataFrame:
+        urls = search_web(query, num_results=num_results)
+        results = []
+        for url in urls:
+            content = fetch_and_parse_content(url)
+            results.append(content)
+            time.sleep(1)
+        
+        df = pd.DataFrame(results)
+        
+        if 'text' in df.columns:
+            df['content_length'] = df['text'].str.len()
+        
+        cols = ['url', 'domain', 'title', 'content_length', 'text', 'error']
+        df = df.reindex(columns=[c for c in cols if c in df.columns])
+        
+        return df
 status: "inactive"
 tags: ["web-search", "google"]
