@@ -9,5 +9,5 @@ content: |
      - inspect.getsource(function_name) to view the source code
      - Look at the original cell where the function is defined
      - Test with simple inputs if behavior is unclear
-status: "active"
+status: "inactive"
 
